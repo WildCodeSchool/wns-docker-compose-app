@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   test-client:
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
