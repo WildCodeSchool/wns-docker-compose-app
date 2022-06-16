@@ -19,4 +19,4 @@ jobs:
       uses: actions/checkout@v2
     - name: Goto client and run tests
 #. on n'utilise pas une action prédéfinie, on utilise lui indique quelle action on veut utiliser
-      run: cd client && yarn && yarn test
+      run: cd client && npm i && npm test
