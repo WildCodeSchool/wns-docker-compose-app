@@ -1,0 +1,22 @@
+name: client-tests-workflow
+
+#. choisir l'evenement qui le déclenche 
+on:
+  pull_request
+
+#. on défini que le workflow doit effectuer des jobs
+jobs:
+#. on nomme le premier jobs
+  test-client:
+#. on défini le système d'exploitation sur lequel il doit tourner
+#. liens des systeme d'exploitation : https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
+    runs-on: windows-latest
+#. on liste les différentes étapes (steps) qui composent notre job
+    steps:
+#. elles sont composé d'un name, et d'actions (uses)
+#. on la nomme check out code, elle sert à recupérer le code du repo sur le workflow lancé
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Goto client and run tests
+#. on n'utilise pas une action prédéfinie, on utilise lui indique quelle action on veut utiliser
+      run: cd client && yarn && yarn test
